@@ -6,7 +6,7 @@
 
     <groupId>com.kucoin.futures</groupId>
     <artifactId>kucoin-futures-java-sdk</artifactId>
-    <version>1.2.0</version>
+    <version>1.2.0-SNAPSHOT</version>
 
     <name>kucoin-futures-java-sdk</name>
     <url>http://futures.kucoin.com</url>
@@ -81,11 +81,29 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <source>${java.version}</source>
-                    <target>${java.version}</target>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <skip>true</skip>
                 </configuration>
             </plugin>
         </plugins>
     </build>
 
+    <distributionManagement>
+        <snapshotRepository>
+            <id>mvn-upload</id>
+            <url>http://172.31.16.212:8081/repository/maven-snapshots/</url>
+
+        </snapshotRepository>
+        <repository>
+            <id>mvn-upload</id>
+            <url>http://172.31.16.212:8081/repository/maven-snapshots/</url>
+        </repository>
+    </distributionManagement>
 </project>
